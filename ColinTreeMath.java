@@ -11,7 +11,7 @@ import com.google.appinventor.components.common.*;
 import com.google.appinventor.components.runtime.*;
 import com.google.appinventor.components.runtime.util.*;
 
-@DesignerComponent(version = ColinTreeMathExtended.VERSION,
+@DesignerComponent(version = ColinTreeMath.VERSION,
     description = "by ColinTree at http://aix.colintree.cn",
     category = ComponentCategory.EXTENSION,
     nonVisible = true,
@@ -19,16 +19,16 @@ import com.google.appinventor.components.runtime.util.*;
 
 @SimpleObject(external = true)
 
-public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements Component {
+public class ColinTreeMath extends AndroidNonvisibleComponent implements Component {
     public static final int VERSION = 1;
     private ComponentContainer container;
     private Context context;
-    private static final String LOG_TAG = "ColinTreeMathExtended";
-    public ColinTreeMathExtended(ComponentContainer container) {
+    private static final String LOG_TAG = "ColinTreeMath";
+    public ColinTreeMath(ComponentContainer container) {
         super(container.$form());
         this.container = container;
         context = (Context) container.$context();
-        Log.d(LOG_TAG, "ColinTreeMathExtended Created" );
+        Log.d(LOG_TAG, "ColinTreeMath Created" );
     }
     
     /*/Radius to Degree - Jiao Du Zhuan Hu Du
@@ -76,7 +76,7 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     // Bubble Sort in ascending order - Sheng Xu Mao Pao
     @SimpleFunction(description = "(Sheng Xu Pai Xu - Mao Pao Pai Xu) Sort the number in the list in ascending order. Please make sure there are all number in the list")
-    public YailList BubbleSortInAscendingOrder(YailList list){
+    public YailList SortAscend(YailList list){
     	Object[] rst=new Object[list.size()],lst=list.toArray();
     	double[] forSort=new double[list.size()];
     	double tmp;
@@ -99,7 +99,7 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     // Sort in descending order - Jiang Xu Mao Pao
     @SimpleFunction(description = "(Jiang Xu Pai Xu - Mao Pao Pai Xu) Sort the number in the list in decending order. Please make sure there are all number in the list")
-    public YailList BubbleSortInDecendingOrder(YailList list){
+    public YailList SortDecend(YailList list){
     	Object[] rst=new Object[list.size()],lst=list.toArray();
     	double[] forSort=new double[list.size()];
     	double tmp;
@@ -122,29 +122,29 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     //greatest common divisor - Zui Da Gong Yue Shu
     @SimpleFunction(description = "(Zui Da Gong Yue Shu)Return the greatest common divisor, auto-round down into integer if it is not")
-    public int GreatestCommonDivisor(int number1,int number2){
+    public int GCD(int number1,int number2){
     	if (number1==number2){
     		return number1;
     	}
     	if (number1<number2){
-    		return GreatestCommonDivisor(number2,number1);
+    		return GCD(number2,number1);
     	}else{
     		if ((number1%2==0)&&(number2%2==0)){
-    			return GreatestCommonDivisor(number1>>1,number2>>1)<<1;
+    			return GCD(number1>>1,number2>>1)<<1;
     		}else if ((number1%2==0)&&(number2%2!=0)){
-    			return GreatestCommonDivisor(number1>>1,number2);
+    			return GCD(number1>>1,number2);
     		}else if ((number1%2!=0)&&(number2%2==0)){
-    			return GreatestCommonDivisor(number1,number2>>1);
+    			return GCD(number1,number2>>1);
     		}else{
-    			return GreatestCommonDivisor(number2,number1-number2);
+    			return GCD(number2,number1-number2);
     		}
     	}
     	//return number2?gcd(b,a%b):a;    //from qq1139855151 He Bei Shi Jia Zhuang Chen
     }
     //Least common multiple - Zui Xiao Gong Bei Shu
     @SimpleFunction(description = "(Zui Xiao Gong Bei Shu)Return the least common multiple, auto-round down into integer if it is not")
-    public int LeastCommonMultiple(int number1,int number2){
-    	int gcd=GreatestCommonDivisor(number1,number2);
+    public int LCM(int number1,int number2){
+    	int gcd=GCD(number1,number2);
     	return number1*number2/gcd;
     }
     //Power - Qiu Mi
@@ -175,7 +175,7 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     //Cube root (Li Fang Gen)
     @SimpleFunction(description = "(Li Fang Gen)Return 3√num")
-    public double CubeRoot(double number){
+    public double CbRt(double number){
     	return Math.cbrt(number);
     }
     //log10
@@ -185,7 +185,7 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     //1/√num
     @SimpleFunction(description = "Return 1/√num")
-    public double ReciprocalOfTheSquareRoot(double number){
+    public double ROTSR(double number){
     	return 1/Math.sqrt(number);
     }
     //sqrt(number1^2 +number2^2)
@@ -195,7 +195,7 @@ public class ColinTreeMathExtended extends AndroidNonvisibleComponent implements
     }
     //Prime number (Zhi Shu)
     @SimpleFunction(description = "Return true if number is prime number")
-    public boolean PrimeNumber(int number){
+    public boolean Prime(int number){
     	if (number==2)
     		return true;
     	else if (number%2==0)

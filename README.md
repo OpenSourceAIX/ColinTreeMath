@@ -6,7 +6,7 @@
 
 比如GreatestCommonDivisor(最大公约数)缩短为GCD，减小代码占用面积
 
-原网址：http://aix.colintree.cn/down/MathExtended  
+原网址：http://www.source-space.cn/down/MathExtended  
 作者：ColinTree
 
 
@@ -19,5 +19,5 @@ All functions are the same with "Extended Math Library", the difference is i sho
 
 For example, GreatestCommonDivisor is shortened to GCD, this reduce the blocks' area
 
-Original Web Page：http://aix.colintree.cn/down/MathExtended  
+Original Web Page：http://www.source-space.cn/down/MathExtended  
 Author: ColinTree

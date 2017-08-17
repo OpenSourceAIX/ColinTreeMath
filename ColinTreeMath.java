@@ -1,8 +1,4 @@
-/**
- * @author ColinTree (colinycl123@gmail.com)
- */
-
-package cn.colintree.aix;
+package cn.colintree.aix.ColinTreeMath;
 
 import android.content.Context;
 import android.util.Log;
@@ -31,16 +27,6 @@ public class ColinTreeMath extends AndroidNonvisibleComponent implements Compone
         Log.d(LOG_TAG, "ColinTreeMath Created" );
     }
     
-    /*/Radius to Degree - Jiao Du Zhuan Hu Du
-    @SimpleFunction(description = "Turn degree into radius")
-    public double D2R(double Degree){
-    	return Degree/180*Math.PI;
-    }
-    // Radius to Degree - Hu Du Zhuan Jiao Du
-    @SimpleFunction(description = "Turn degree into radius")
-    public double R2D(double Radius){
-    	return Radius*180/Math.PI;
-    }*/
     // Max - Zui Da Shu
     @SimpleFunction(description = "Find the max number in the list, return min double if the list is empty. Also, please make sure there are all number in the list")
     public double Max(YailList list){
